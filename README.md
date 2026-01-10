@@ -1,1 +1,52 @@
-Clinical Trial Data Analysis: Demographic Summary (Table 14.1)📌 Project OverviewThis repository demonstrates the end-to-end process of generating a Table 14.1: Summary of Demographic and Baseline Characteristics, a core component of a Clinical Study Report (CSR).In clinical trials, this table is used to assess the success of randomization by comparing baseline characteristics (Age, Gender, Race) between the Active and Placebo treatment arms.🛠 Programming MethodologiesRather than providing a single script, this project showcases three distinct industry approaches to table generation, highlighting versatility in SAS programming:Tabulate Method: High-speed data exploration and internal summary reporting.Report Compute Method: Demonstrates advanced PROC REPORT logic by performing percentage calculations and denominators dynamically within the report procedure.Industry Standard (Stacked) Method: The gold standard for regulatory submissions (FDA/EMA). It uses a multi-step pipeline: Statistical Testing $\rightarrow$ Data Transposition $\rightarrow$ Concatenation $\rightarrow$ Final Reporting.📂 Repository StructureThe project is organized into a logical execution sequence:FileNameDescription0101_data_init.sasEnvironment Setup: Defines global options, clinical formats, and creates the mock ADSL (Analysis Data Subject Level) dataset.0202_tabulate_method.sasRapid Reporting: Uses PROC TABULATE for a concise, efficient summary of data.0303_report_method.sasAdvanced Report Logic: Showcases COMPUTE blocks to generate denominators and percentages on-the-fly.0404_clinical_standard.sasProduction Grade Table: Includes $p$-value calculations (Wilcoxon Rank-Sum & Fisher's Exact) and follows professional CSR formatting.📊 Statistical Methods AppliedTo ensure statistical rigor, the following tests are implemented in the 04_clinical_standard script:Continuous Variables (Age): Analyzed using the Wilcoxon Rank-Sum test (PROC NPAR1WAY) to compare medians across treatment groups.Categorical Variables (Gender/Race): Analyzed using Pearson’s Chi-Square or Fisher’s Exact Test (PROC FREQ) to evaluate distributional balance.🚀 How to RunOpen your SAS environment (SAS OnDemand for Academics, SAS 9.4, or SAS University Edition).Run 01_data_init.sas first to initialize the WORK.DEMOG dataset and custom formats.Run any of the analysis scripts (02, 03, or 04) to view the resulting output in the Results/Output window.📝 Key Learning OutcomesData Reshaping: Proficiency in PROC TRANSPOSE to move data from a "Long" format to a "Wide" reporting format.Macro Integration: Use of CALL SYMPUT to dynamically populate population counts ($N=XX$) in column headers.Traceability: Ensuring that every number in the final PDF can be traced back to the source mock data.
+# Clinical-SAS-TLF-Development: Table 14.1
+
+## 📌 Overview
+This project demonstrates the end-to-end development of a **Table 14.1: Summary of Demographic and Baseline Characteristics**. This is a primary deliverable in Clinical Trial reporting (CSR), used to verify that randomization was successful by comparing treatment arms (Active vs. Placebo).
+
+The repository showcases three distinct SAS programming methodologies, ranging from quick data exploration to industry-standard production code for regulatory submissions.
+
+
+
+---
+
+## 📂 Repository Structure
+
+The project is organized into a logical execution sequence to ensure traceability and reproducibility:
+
+| File | Name | Description |
+| :--- | :--- | :--- |
+| **01** | `01_data_init.sas` | **Foundation:** Defines global options, clinical formats, and creates the mock ADSL-style dataset with missing data handling. |
+| **02** | `02_tabulate_method.sas` | **Rapid Review:** Uses `PROC TABULATE` for efficient, high-level data summaries. |
+| **03** | `03_report_method.sas` | **Advanced Layout:** Demonstrates `PROC REPORT` with compute blocks for dynamic percentage calculations. |
+| **04** | `04_clinical_standard.sas` | **Production Grade:** The final CSR output featuring $p$-values, multi-step data transposition, and professional formatting. |
+
+---
+
+## 📊 Statistical Analysis Implementation
+To evaluate baseline balance between treatment groups, the following statistical procedures are implemented in `04_clinical_standard_method.sas`:
+
+* **Continuous Data (Age):** Analyzed using the **Wilcoxon Rank-Sum Test** (`PROC NPAR1WAY`) to account for potential non-normal distributions in small sample sizes.
+* **Categorical Data (Gender/Race):** Analyzed using **Pearson’s Chi-Square** or **Fisher’s Exact Test** (`PROC FREQ`) to ensure representative distribution across arms.
+
+
+
+---
+
+## 🛠 Technical Competencies
+* **CDISC Standards:** Logic designed to mimic ADaM (ADSL) data structures.
+* **Data Reshaping:** Mastery of `PROC TRANSPOSE` for converting analysis results into report-ready formats.
+* **Dynamic Reporting:** Use of Macro variables (`CALL SYMPUT`) to populate population counts ($N$) in headers.
+* **Quality Control:** Handling of missing data (e.g., Subject 712) to ensure 100% accuracy in clinical reporting.
+
+---
+
+## 🚀 How to Run
+1. Clone the repository to your local machine.
+2. Run `01_data_init.sas` first to initialize the environment and create the `WORK.DEMOG` dataset.
+3. Execute any of the analysis scripts (`02` through `04`) to generate the corresponding outputs.
+
+---
+
+### Contact
+**Developer:** [Your Name]  
+**LinkedIn:** [Your LinkedIn Link]
