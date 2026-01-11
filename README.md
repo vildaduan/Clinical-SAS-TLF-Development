@@ -1,6 +1,6 @@
 # Clinical-SAS-TLF-Development: Table 14.1
 
-## 📌 Overview
+##  Overview
 This project demonstrates the end-to-end development of a **Table 14.1: Summary of Demographic and Baseline Characteristics**. This is a primary deliverable in Clinical Trial reporting (CSR), used to verify that randomization was successful by comparing treatment arms (Active vs. Placebo).
 
 The repository showcases three distinct SAS programming methodologies, ranging from quick data exploration to industry-standard production code for regulatory submissions.
@@ -9,7 +9,7 @@ The repository showcases three distinct SAS programming methodologies, ranging f
 
 ---
 
-## 📂 Repository Structure
+##  Repository Structure
 
 The project is organized into a logical execution sequence to ensure traceability and reproducibility:
 
@@ -22,7 +22,7 @@ The project is organized into a logical execution sequence to ensure traceabilit
 
 ---
 
-## 📊 Statistical Analysis Implementation
+##  Statistical Analysis Implementation
 To evaluate baseline balance between treatment groups, the following statistical procedures are implemented in `04_clinical_standard_method.sas`:
 
 * **Continuous Data (Age):** Analyzed using the **Wilcoxon Rank-Sum Test** (`PROC NPAR1WAY`) to account for potential non-normal distributions in small sample sizes.
@@ -32,7 +32,7 @@ To evaluate baseline balance between treatment groups, the following statistical
 
 ---
 
-## 🛠 Technical Competencies
+##  Technical Competencies
 * **CDISC Standards:** Logic designed to mimic ADaM (ADSL) data structures.
 * **Data Reshaping:** Mastery of `PROC TRANSPOSE` for converting analysis results into report-ready formats.
 * **Dynamic Reporting:** Use of Macro variables (`CALL SYMPUT`) to populate population counts ($N$) in headers.
@@ -40,13 +40,9 @@ To evaluate baseline balance between treatment groups, the following statistical
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 1. Clone the repository to your local machine.
 2. Run `01_data_init.sas` first to initialize the environment and create the `WORK.DEMOG` dataset.
 3. Execute any of the analysis scripts (`02` through `04`) to generate the corresponding outputs.
 
----
 
-### Contact
-**Developer:** [Your Name]  
-**LinkedIn:** [Your LinkedIn Link]
